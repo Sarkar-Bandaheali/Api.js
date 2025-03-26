@@ -29,8 +29,7 @@ app.get("/ytmp4", async (req, res) => {
 
     try {
         let data = await gifted.giftedytmp4(videoUrl);
-        let resl = data.result;
-        res.json({ status: true, creator: "Sarkar", result: resl });
+        res.json({ status: true, creator: "Sarkar", result: data });
     } catch (error) {
         res.json({ status: false, message: "Error fetching MP4", error: error.message });
     }
