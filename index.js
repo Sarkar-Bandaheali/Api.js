@@ -18,7 +18,7 @@ app.get("/ytmp3", async (req, res) => {
         res.json({
             status: true,
             creator: "Sarkar",
-            title: data.result.title || "Unknown",
+            title: data.title || "Unknown",
             thumbnail: data.result.thumbnail || "No Thumbnail",
             downloadUrl: data.result.url || "No Download URL"
         });
@@ -41,7 +41,7 @@ app.get("/ytmp4", async (req, res) => {
         res.json({
             status: true,
             creator: "Sarkar",
-            title: data.result.title || "Unknown",
+            title: data.title || "Unknown",
             thumbnail: data.result.thumbnail || "No Thumbnail",
             downloadUrl: data.result.url || "No Download URL"
         });
