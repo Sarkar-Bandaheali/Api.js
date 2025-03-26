@@ -1,8 +1,9 @@
+
 const gifted = require("gifted-dls");
 const express = require("express");
 
 const app = express();
-const port = 8000;
+const port = 3200;
 
 app.get("/ytmp3", async (req, res) => {
     let videoUrl = req.query.url;
@@ -18,9 +19,9 @@ app.get("/ytmp3", async (req, res) => {
         res.json({
             status: true,
             creator: "Sarkar",
-            title: data.title || "Unknown",
+            title: data.result.title || "Unknown",
             thumbnail: data.result.thumbnail || "No Thumbnail",
-            downloadUrl: data.result.url || "No Download URL"
+            downloadUrl: data.result.download_url || "No Download URL"
         });
     } catch (error) {
         res.json({ status: false, message: "Error fetching MP3", error: error.message });
@@ -41,9 +42,9 @@ app.get("/ytmp4", async (req, res) => {
         res.json({
             status: true,
             creator: "Sarkar",
-            title: data.title || "Unknown",
+            title: data.result.title || "Unknown",
             thumbnail: data.result.thumbnail || "No Thumbnail",
-            downloadUrl: data.result.url || "No Download URL"
+            downloadUrl: data.result.download_url || "No Download URL"
         });
     } catch (error) {
         res.json({ status: false, message: "Error fetching MP4", error: error.message });
